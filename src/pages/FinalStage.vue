@@ -33,7 +33,7 @@ const finalAnswer = answers.final
 const gameState = useGameState()
 
 // 画像は public/quizzes/final.png に置いておくのが確実
-const finalImagePath = computed(() => `/quizzes/final.png`)
+const finalImagePath = computed(() => `quizzes/final.png`)
 
 const checkAnswer = () => {
   if (userAnswer.value.trim() === finalAnswer) {

@@ -15,8 +15,9 @@
 
       <div v-if="showHint" class="hint-box">
         <p class="hint-text">💡 ヒント：{{ hintText }}</p>
-        <button @click="goBack" class="back-button">戻る</button>
       </div>
+
+      <button @click="goBack" class="back-button">戻る</button>
 
       <p v-if="showError" class="error-message">❌ 答えが違います。</p>
     </div>

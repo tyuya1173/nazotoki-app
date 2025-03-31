@@ -38,5 +38,5 @@ export const answers = {
       17: "はんこ",
       18: "にげみち"
     },
-    final: "最終答え"
+    final: "ふらいと"
   }
