@@ -1,23 +1,67 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+
+// ページコンポーネントのインポート
+import StartScreen from '../pages/StartScreen.vue'
+import HackedMessage from '../pages/HackedMessage.vue'
+import RuleScreen from '../pages/RuleScreen.vue'
+import GameStage from '../pages/GameStage.vue'
+import HintScreen from '../pages/HintScreen.vue'
+import FinalStage from '../pages/FinalStage.vue'
+import GameClear from '../pages/GameClear.vue'
+import GameOver from '../pages/GameOver.vue'
+
+const routes = [
+  {
+    path: '/',
+    name: 'Start',
+    component: StartScreen
+  },
+  {
+    path: '/hacked',
+    name: 'HackedMessage',
+    component: HackedMessage
+  },
+  {
+    path: '/rules',
+    name: 'Rule',
+    component: RuleScreen
+  },
+  {
+    path: '/stage/:id',
+    name: 'Stage',
+    component: GameStage,
+    props: true
+  },
+  {
+    path: '/hint/:id',
+    name: 'Hint',
+    component: HintScreen,
+    props: true
+  },
+  {
+    path: '/final',
+    name: 'FinalStage',
+    component: FinalStage
+  },
+  {
+    path: '/clear',
+    name: 'GameClear',
+    component: GameClear
+  },
+  {
+    path: '/gameover',
+    name: 'GameOver',
+    component: GameOver
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/'
+  }
+]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: HomeView,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
-    },
-  ],
+  history: createWebHistory(),
+  routes
 })
 
 export default router
