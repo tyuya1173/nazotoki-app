@@ -18,8 +18,6 @@
       <p v-if="showError" class="error-message">
         ❌ 答えが違います。もう一度試してみてください。
       </p>
-
-      <Timer />
     </div>
   </div>
 </template>
@@ -43,9 +41,11 @@ const quizImagePath = computed(() =>
 
 const checkAnswer = () => {
   const correct = answers.quizzes[stageId]
-  if (userAnswer.value.trim() === correct) {
-    if (stageId === 17) {
-      router.push('/final')
+  const trimmed = userAnswer.value.trim()
+
+  if (trimmed === correct) {
+    if (stageId === 18) {
+      showError.value = false
     } else {
       router.push(`/stage/${stageId + 1}`)
     }
@@ -58,15 +58,7 @@ const goToHint = () => {
   router.push(`/hint/${stageId}`)
 }
 
-const gameState = useGameState()
-watch(
-  () => gameState.isTimeUp,
-  (isTimeUp) => {
-    if (isTimeUp) {
-      router.push('/gameover')
-    }
-  }
-)
+
 </script>
 
 <style scoped>

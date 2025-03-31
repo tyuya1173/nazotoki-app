@@ -1,12 +1,23 @@
 <template>
   <div id="app">
     <router-view :key="$route.fullPath" />
-    <Timer />
+    <Timer :stageId="currentStageId" />
   </div>
 </template>
 
 <script setup lang="ts">
 import Timer from '@/components/Timer.vue'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+// ルートからステージ番号を抽出（例：/stage/1 → 1）
+const currentStageId = computed(() => {
+  const stageParam = route.params.id
+  const stageNumber = Number(stageParam)
+  return isNaN(stageNumber) ? undefined : stageNumber
+})
 </script>
 
 <style>
