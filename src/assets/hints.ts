@@ -1,4 +1,6 @@
-export const hints = {
+export const hints: {
+    hints: { [key: number]: string }
+  } = {
     hints: {
       1: "有名なあの人ですね",
       2: "書いてみたらわかるかも",
