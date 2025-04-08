@@ -13,6 +13,7 @@
       <div class="buttons">
         <button @click="checkAnswer" class="submit-button">送信</button>
         <button @click="goToHint" class="hint-button">ヒント</button>
+        <button @click="goBack" class="back-button">戻る</button>
       </div>
 
       <p v-if="showError" class="error-message">
@@ -58,6 +59,11 @@ const goToHint = () => {
   router.push(`/hint/${stageId}`)
 }
 
+const goBack = () => {
+  if(stageId > 1) {
+    router.push(`/stage/${stageId - 1}`)
+  }
+}
 
 </script>
 
@@ -144,5 +150,14 @@ const goToHint = () => {
   color: red;
   margin-top: 1rem;
   font-weight: bold;
+}
+
+.back-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
 }
 </style>
