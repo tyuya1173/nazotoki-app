@@ -1,5 +1,5 @@
 export const answers: {
-  quizzes: { [key: number]: string }
+  quizzes: { [key: number]: string | string[] }
   hints: { [key: number]: string }
   final: string
 } = {
@@ -19,7 +19,7 @@ export const answers: {
     13: "さとう",
     14: "そり",
     15: "ちらし",
-    16: "ふろく",
+    16: ["ふろく", "ふくろ"], // ✅ 複数正解に対応
     17: "はれ"
   },
   hints: {

@@ -44,9 +44,15 @@ const checkAnswer = () => {
   const correct = answers.quizzes[stageId]
   const trimmed = userAnswer.value.trim()
 
-  if (trimmed === correct) {
+  const isCorrect =
+    typeof correct === 'string'
+      ? trimmed === correct
+      : Array.isArray(correct) && correct.includes(trimmed)
+
+  if (isCorrect) {
+    showError.value = false
     if (stageId === 18) {
-      showError.value = false
+      // 最終ステージ処理（必要であればここでリダイレクトなど）
     } else {
       router.push(`/stage/${stageId + 1}`)
     }
