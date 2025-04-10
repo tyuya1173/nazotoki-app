@@ -70,8 +70,10 @@ const goBack = () => {
   background: linear-gradient(to bottom right, #fff8e1, #fffde7);
   display: flex;
   justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  align-items: flex-start;
+  overflow-y: auto;
+  min-height: 100vh;
+  padding: 2rem;
 }
 
 .hint-screen {
