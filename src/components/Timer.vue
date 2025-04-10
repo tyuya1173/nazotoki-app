@@ -58,10 +58,10 @@ const handleClick = () => {
 const checkTimeUp = () => {
   const isExpired = remaining.value <= 0
 
-  console.log('[checkTimeUp]');
-  console.log('remaining(ms):', remaining.value);
-  console.log('isExpired:', isExpired);
-  console.log('gameState.isTimeUp:', gameState.isTimeUp);
+  // console.log('[checkTimeUp]');
+  // console.log('remaining(ms):', remaining.value);
+  // console.log('isExpired:', isExpired);
+  // console.log('gameState.isTimeUp:', gameState.isTimeUp);
 
   if (isExpired && !gameState.isTimeUp) {
     gameState.isTimeUp = true
