@@ -12,11 +12,6 @@
       />
 
       <button @click="checkAnswer" class="submit-button">送信</button>
-
-      <div v-if="showHint" class="hint-box">
-        <p class="hint-text">💡 ヒント：{{ hintText }}</p>
-      </div>
-
       <button @click="goBack" class="back-button">戻る</button>
 
       <p v-if="showError" class="error-message">❌ 答えが違います。</p>
@@ -36,7 +31,6 @@ const stageId = Number(route.params.id)
 
 const userAnswer = ref('')
 const showError = ref(false)
-const showHint = ref(false)
 
 const hintText = hints.hints[stageId] || '(ヒント未設定)'
 const correctAnswer = answers.hints[stageId]
@@ -48,10 +42,9 @@ const hintImagePath = computed(() =>
 const checkAnswer = () => {
   if (userAnswer.value.trim() === correctAnswer) {
     showError.value = false
-    showHint.value = true
+    alert(`💡 ヒント：${hintText}`)
   } else {
     showError.value = true
-    showHint.value = false
   }
 }
 
@@ -120,19 +113,6 @@ const goBack = () => {
 
 .submit-button:hover {
   background-color: #e0a800;
-}
-
-.hint-box {
-  margin-top: 2rem;
-  background: #f8f9fa;
-  border-left: 5px solid #28a745;
-  padding: 1rem;
-  border-radius: 6px;
-}
-
-.hint-text {
-  font-size: 1.1rem;
-  color: #333;
 }
 
 .back-button {
